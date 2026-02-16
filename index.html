@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maurice Odhiambo | Marketing & Full-Stack Developer</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    <style>
+        body { font-family: 'Poppins', sans-serif; background-color: #020617; }
+        .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .gradient-text { background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-shape { position: absolute; filter: blur(80px); opacity: 0.15; z-index: -1; }
+        .chat-container { height: 350px; overflow-y: auto; scrollbar-width: none; }
+        .chat-container::-webkit-scrollbar { display: none; }
+        
+        /* Custom Button Loading State */
+        .btn-loading { pointer-events: none; opacity: 0.7; }
+    </style>
+</head>
+<body class="text-slate-200 antialiased overflow-x-hidden">
+
+    <nav class="fixed w-full z-[100] glass py-4">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <span class="text-2xl font-bold gradient-text tracking-tighter">MOO.</span>
+            <div class="hidden md:flex gap-8 text-sm font-medium items-center">
+                <a href="#expertise" class="hover:text-blue-400 transition">Services</a>
+                <a href="#experience" class="hover:text-blue-400 transition">Portfolio</a>
+                <a href="#contact" class="px-6 py-2 bg-blue-600 hover:bg-blue-500 rounded-lg text-white transition-all shadow-lg shadow-blue-500/20">Hire Maurice</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative min-h-screen flex items-center pt-20">
+        <div class="hero-shape top-20 right-10 w-80 h-80 bg-blue-600 rounded-full"></div>
+        <div class="hero-shape bottom-10 left-10 w-96 h-96 bg-purple-600 rounded-full"></div>
+
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+            <div class="reveal">
+                <h2 class="text-blue-400 font-bold tracking-[0.2em] uppercase text-xs mb-4">Growth Specialist & Full-Stack Developer</h2>
+                <h1 class="text-5xl lg:text-7xl font-bold leading-[1.1] mb-8">
+                    Building <span class="gradient-text">Systems</span> That Print Revenue.
+                </h1>
+                <p class="text-slate-400 text-lg mb-10 max-w-lg leading-relaxed">
+                    I bridge the gap between complex Computer Science architecture and high-converting marketing psychology.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <button onclick="downloadCV()" class="bg-white text-black px-8 py-4 rounded-xl font-bold hover:bg-blue-600 hover:text-white transition-all flex items-center gap-2">
+                        <i data-lucide="download" class="w-5 h-5"></i> Download CV
+                    </button>
+                    <a href="#contact" class="glass px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:bg-white/10 transition">
+                        Start Project <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="relative reveal delay-200">
+                <div class="relative z-10 w-full aspect-square rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl">
+                    <img src="profile.jpg" alt="Maurice Odhiambo" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                </div>
+                <div class="absolute -bottom-6 -left-6 glass p-4 rounded-2xl z-20 hidden md:block border-l-4 border-blue-500 shadow-xl">
+                    <p class="text-xs text-slate-400 font-bold uppercase tracking-tighter">Technical Marketing</p>
+                    <p class="text-xl font-bold text-white">Conversion Expert</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!--  -->
+    
+     <section id="experience" class="py-24">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16">
+                <div>
+                    <h3 class="text-2xl font-bold mb-10 flex items-center gap-3">
+                        <i data-lucide="briefcase" class="text-blue-500"></i> Experience
+                    </h3>
+                    <div class="space-y-12 border-l-2 border-slate-800 pl-8 relative">
+                        <div>
+                            <span class="absolute -left-[9px] w-4 h-4 rounded-full bg-blue-500"></span>
+                            <p class="text-blue-400 text-sm font-bold mb-1">2022 — PRESENT</p>
+                            <h4 class="text-xl font-bold">Freelance Consultant</h4>
+                            <p class="text-slate-400 mt-2">Helping brands scale through technical marketing. Managed $30k in ad spend and built 10+ web platforms.</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-10">Technical Toolkit</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-sm">Tailwind CSS</span>
+                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-sm">React</span>
+                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-sm">Laravel</span>
+                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-sm">JavaScript</span>
+                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-sm">Meta Ads</span>
+                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-sm">SEO</span>
+                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-sm">Google Analytics</span>
+                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-sm">Email Automation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--  -->
+
+    <section class="py-20 bg-slate-900/50">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-10 reveal">
+                <h3 class="text-3xl font-bold">Query My <span class="text-blue-500">Resume AI</span></h3>
+                <p class="text-slate-400 mt-2 text-sm italic">Try: "What is your tech stack?" or "Tell me about your marketing ROI"</p>
+            </div>
+            <div class="glass p-6 rounded-3xl reveal border border-blue-500/20">
+                <div class="flex items-center gap-4 mb-6 border-b border-white/10 pb-4">
+                    <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
+                        <i data-lucide="cpu" class="text-white w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold">Maurice Agent v1.0</h4>
+                        <p class="text-[10px] text-green-400 font-bold tracking-widest uppercase">Specialized Knowledge Base</p>
+                    </div>
+                </div>
+                <div id="chatBox" class="chat-container space-y-4 mb-6 pr-4 text-sm">
+                    <div class="bg-slate-800 p-4 rounded-2xl rounded-tl-none max-w-[80%] leading-relaxed">
+                        Greetings. I am Maurice's technical agent. I have access to his professional history, CS background, and marketing performance data. How can I assist your hiring process?
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <input id="chatInput" type="text" placeholder="Ask about ROI, Laravel, or Meta Ads..." class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500">
+                    <button onclick="sendMessage()" class="absolute right-2 top-2 bg-blue-600 p-1.5 rounded-lg">
+                        <i data-lucide="send" class="w-4 h-4 text-white"></i>
+                    </button>
+                </div>
+              
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16">
+            <div class="reveal">
+                <h3 class="text-4xl font-bold mb-6 italic">Secure Your <br><span class="gradient-text text-white">Next Growth Engine.</span></h3>
+                <p class="text-slate-400 mb-8 leading-relaxed text-lg">I am currently available for high-impact roles and consulting. My dual-stack expertise reduces operational costs and maximizes technical execution speed.</p>
+                
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 glass rounded-full flex items-center justify-center text-blue-400"><i data-lucide="mail"></i></div>
+                        <div><p class="text-xs text-slate-500">Professional Channel</p><p class="font-bold">odhiambomaurice686@gmail.com</p></div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 glass rounded-full flex items-center justify-center text-blue-400"><i data-lucide="linkedin"></i></div>
+                        <div><p class="text-xs text-slate-500">Networking</p><p class="font-bold">Maurice Odhiambo Olala</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass p-8 rounded-3xl reveal delay-200 border-t-2 border-blue-500/30">
+                <form id="hiringForm" action="https://formspree.io/f/odhiambomaurice686@gmail.com" method="POST" class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <input type="text" name="name" required placeholder="Name" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500 transition">
+                        <input type="email" name="_replyto" required placeholder="Work Email" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500 transition">
+                    </div>
+                    <select name="service" required class="w-full bg-slate-900 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500 text-slate-400">
+                        <option value="" disabled selected>Nature of Project</option>
+                        <option value="Full-Time Hiring">Full-Time Hiring</option>
+                        <option value="SaaS Development">SaaS Development</option>
+                        <option value="Growth Marketing Strategy">Growth Marketing Strategy</option>
+                        <option value="Audit & CRO">Audit & CRO</option>
+                    </select>
+                    <textarea name="message" required rows="4" placeholder="Briefly describe your goals..." class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500 transition"></textarea>
+                    
+                    <button type="submit" id="submitBtn" class="w-full bg-blue-600 py-4 rounded-xl font-bold hover:shadow-[0_0_30px_rgba(37,99,235,0.4)] transition-all flex justify-center items-center gap-2">
+                        <span>Initiate Inquiry</span>
+                        <i data-lucide="send" class="w-4 h-4"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-white/5 text-center">
+        <p class="text-slate-500 text-xs tracking-widest uppercase">Developed by Maurice | Built with Laravel, React & ROI in mind</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        ScrollReveal().reveal('.reveal', {
+            delay: 200, distance: '30px', duration: 1000, easing: 'ease-out', interval: 100, origin: 'bottom'
+        });
+
+        // 1. CV Download Function
+        function downloadCV() {
+            Toastify({
+                text: "Resume Download Initiated...",
+                duration: 3000,
+                gravity: "bottom",
+                position: "right",
+                style: { background: "linear-gradient(to right, #2563eb, #7c3aed)" }
+            }).showToast();
+            
+            // Link to your actual file
+            const link = document.createElement('a');
+            link.href = 'Resume.pdf'; 
+            link.download = 'Maurice_Odhiambo_Resume.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // 2. Specialized AI Resume Bot Logic
+        const chatBox = document.getElementById('chatBox');
+        const chatInput = document.getElementById('chatInput');
+
+        const resumeKnowledge = {
+            "stack": "Maurice is proficient in HTML5, Tailwind CSS, JavaScript (React), PHP (Laravel), and MySQL. He builds scalable MVC architectures.",
+            "marketing": "He specializes in Meta & Google Ads, CRO, and Funnel Development. He leverages data analytics to optimize for ROI.",
+            "education": "Maurice studied Computer Science at MMUST (Years 1-2) and pivoted to full-time professional strategy and independent development.",
+            "roi": "In previous consultancy roles, Maurice has improved lead capture efficiency through UX design and increased ROAS via targeted audience segmentation.",
+            "contact": "You can reach him directly at odhiambomaurice686@gmail.com or via the form at the bottom of this page."
+        };
+
+        function sendMessage() {
+            const input = chatInput.value.trim().toLowerCase();
+            if (!input) return;
+
+            addChatMessage(chatInput.value, 'user');
+            chatInput.value = '';
+
+            setTimeout(() => {
+                let reply = "I'm a specialized agent for Maurice. I can tell you about his Tech Stack, Marketing ROI, Education, or Contact details. Which would you prefer?";
+                
+                if(input.includes('stack') || input.includes('language') || input.includes('code')) reply = resumeKnowledge.stack;
+                else if(input.includes('marketing') || input.includes('ads') || input.includes('funnel')) reply = resumeKnowledge.marketing;
+                else if(input.includes('education') || input.includes('university') || input.includes('school')) reply = resumeKnowledge.education;
+                else if(input.includes('roi') || input.includes('growth') || input.includes('impact')) reply = resumeKnowledge.roi;
+                else if(input.includes('contact') || input.includes('email') || input.includes('hire')) reply = resumeKnowledge.contact;
+
+                addChatMessage(reply, 'bot');
+            }, 800);
+        }
+
+        function addChatMessage(text, sender) {
+            const div = document.createElement('div');
+            div.className = sender === 'user' 
+                ? 'bg-blue-600/20 p-4 rounded-2xl rounded-tr-none ml-auto max-w-[80%] border border-blue-500/20' 
+                : 'bg-slate-800 p-4 rounded-2xl rounded-tl-none max-w-[80%]';
+            div.textContent = text;
+            chatBox.appendChild(div);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        // 3. Functional Form Submission with AJAX
+        const hiringForm = document.getElementById('hiringForm');
+        const submitBtn = document.getElementById('submitBtn');
+
+        hiringForm.onsubmit = async (e) => {
+            e.preventDefault();
+            submitBtn.classList.add('btn-loading');
+            submitBtn.innerText = "Processing Data...";
+
+            const formData = new FormData(hiringForm);
+            
+            try {
+                const response = await fetch(hiringForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    Toastify({
+                        text: "✓ Inquiry Sent. Maurice will contact you soon.",
+                        duration: 5000,
+                        style: { background: "#059669" }
+                    }).showToast();
+                    hiringForm.reset();
+                } else {
+                    throw new Error();
+                }
+            } catch (err) {
+                Toastify({
+                    text: "Error: Could not transmit message.",
+                    duration: 5000,
+                    style: { background: "#dc2626" }
+                }).showToast();
+            } finally {
+                submitBtn.classList.remove('btn-loading');
+                submitBtn.innerHTML = `<span>Initiate Inquiry</span> <i data-lucide="send" class="w-4 h-4"></i>`;
+                lucide.createIcons();
+            }
+        };
+
+        // Trigger chat on Enter key
+        chatInput.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") sendMessage();
+        });
+    </script>
+</body>
+</html>
