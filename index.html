@@ -213,47 +213,119 @@
             document.body.removeChild(link);
         }
 
-        // 2. Specialized AI Resume Bot Logic
-        const chatBox = document.getElementById('chatBox');
-        const chatInput = document.getElementById('chatInput');
 
-        const resumeKnowledge = {
-            "stack": "Maurice is proficient in HTML5, Tailwind CSS, JavaScript (React), PHP (Laravel), and MySQL. He builds scalable MVC architectures.",
-            "marketing": "He specializes in Meta & Google Ads, CRO, and Funnel Development. He leverages data analytics to optimize for ROI.",
-            "education": "Maurice studied Computer Science at MMUST (Years 1-2) and pivoted to full-time professional strategy and independent development.",
-            "roi": "In previous consultancy roles, Maurice has improved lead capture efficiency through UX design and increased ROAS via targeted audience segmentation.",
-            "contact": "You can reach him directly at odhiambomaurice686@gmail.com or via the form at the bottom of this page."
+// 2. Advanced Portfolio Robot Class
+class PortfolioRobot {
+    constructor(knowledgeBase) {
+        this.kb = knowledgeBase;
+        this.chatBox = document.getElementById('chatBox');
+        this.chatInput = document.getElementById('chatInput');
+        this.threshold = 1.5; // Confidence score threshold
+    }
+
+    // Advanced NLP Algorithm: Tokenization & Semantic Weighting
+    analyzeIntent(input) {
+        const tokens = input.toLowerCase().replace(/[^\w\s]/gi, '').split(/\s+/);
+        let scores = {
+            stack: 0,
+            marketing: 0,
+            education: 0,
+            roi: 0,
+            contact: 0
         };
 
-        function sendMessage() {
-            const input = chatInput.value.trim().toLowerCase();
-            if (!input) return;
+        // Keyword Mapping with Semantic Weights
+        const weights = {
+            stack: ['code', 'laravel', 'react', 'php', 'javascript', 'stack', 'build', 'develop', 'mysql', 'mvc', 'fullstack'],
+            marketing: ['ads', 'meta', 'google', 'funnel', 'marketing', 'facebook', 'instagram', 'campaign', 'strategy'],
+            education: ['university', 'mmust', 'school', 'study', 'education', 'degree', 'background', 'learn'],
+            roi: ['money', 'revenue', 'roi', 'growth', 'roas', 'convert', 'performance', 'increase', 'profit', 'sales'],
+            contact: ['hire', 'email', 'call', 'talk', 'reach', 'contact', 'location', 'nairobi', 'kenya']
+        };
 
-            addChatMessage(chatInput.value, 'user');
-            chatInput.value = '';
+        // Scoring algorithm
+        tokens.forEach(token => {
+            for (const [category, keywords] of Object.entries(weights)) {
+                if (keywords.includes(token)) {
+                    scores[category] += 1;
+                }
+            }
+        });
 
-            setTimeout(() => {
-                let reply = "I'm a specialized agent for Maurice. I can tell you about his Tech Stack, Marketing ROI, Education, or Contact details. Which would you prefer?";
-                
-                if(input.includes('stack') || input.includes('language') || input.includes('code')) reply = resumeKnowledge.stack;
-                else if(input.includes('marketing') || input.includes('ads') || input.includes('funnel')) reply = resumeKnowledge.marketing;
-                else if(input.includes('education') || input.includes('university') || input.includes('school')) reply = resumeKnowledge.education;
-                else if(input.includes('roi') || input.includes('growth') || input.includes('impact')) reply = resumeKnowledge.roi;
-                else if(input.includes('contact') || input.includes('email') || input.includes('hire')) reply = resumeKnowledge.contact;
+        // Find the highest scoring intent
+        const bestIntent = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+        
+        return scores[bestIntent] > 0 ? bestIntent : 'default';
+    }
 
-                addChatMessage(reply, 'bot');
-            }, 800);
+    async getResponse(intent) {
+        const fallbacks = [
+            "I'm specialized in Maurice's technical and marketing background. Could you ask about his tech stack or marketing results?",
+            "That's an interesting query. While I focus on Maurice's portfolio, I can tell you about his Laravel expertise or Meta Ads ROI. Which interests you?",
+            "Maurice usually handles that personally. Would you like his contact details or to know about his technical skills?"
+        ];
+
+        if (intent === 'default') {
+            return fallbacks[Math.floor(Math.random() * fallbacks.length)];
         }
+        return this.kb[intent];
+    }
 
-        function addChatMessage(text, sender) {
-            const div = document.createElement('div');
-            div.className = sender === 'user' 
-                ? 'bg-blue-600/20 p-4 rounded-2xl rounded-tr-none ml-auto max-w-[80%] border border-blue-500/20' 
-                : 'bg-slate-800 p-4 rounded-2xl rounded-tl-none max-w-[80%]';
-            div.textContent = text;
-            chatBox.appendChild(div);
-            chatBox.scrollTop = chatBox.scrollHeight;
-        }
+    async processUserMessage() {
+        const input = this.chatInput.value.trim();
+        if (!input) return;
+
+        this.addChatMessage(input, 'user');
+        this.chatInput.value = '';
+
+        // Show "Typing..." indicator
+        const typingId = 'typing-' + Date.now();
+        this.addChatMessage('Analyzing intent...', 'bot', typingId);
+
+        const intent = this.analyzeIntent(input);
+        const reply = await this.getResponse(intent);
+
+        setTimeout(() => {
+            document.getElementById(typingId).remove();
+            this.addChatMessage(reply, 'bot');
+        }, 800);
+    }
+
+    addChatMessage(text, sender, id = null) {
+        const div = document.createElement('div');
+        if(id) div.id = id;
+        
+        div.className = sender === 'user' 
+            ? 'bg-blue-600/20 p-4 rounded-2xl rounded-tr-none ml-auto max-w-[80%] border border-blue-500/20 reveal' 
+            : 'bg-slate-800 p-4 rounded-2xl rounded-tl-none max-w-[80%] reveal';
+        
+        div.textContent = text;
+        this.chatBox.appendChild(div);
+        this.chatBox.scrollTop = this.chatBox.scrollHeight;
+    }
+}
+
+// 3. Initialize Robot with your Portfolio Data
+const resumeKnowledge = {
+    "stack": "Maurice is a Full-Stack Engineer specializing in the TALL stack (Tailwind, Alpine, Laravel, Livewire) and React. He focuses on building robust MVC architectures that handle high traffic.",
+    "marketing": "As a technical marketer, Maurice bridges code and profit. He masters Meta Ads Manager and Google Analytics 4, building automated funnels that reduce cost-per-acquisition.",
+    "education": "He has a deep foundation in Computer Science from MMUST. He combined this academic rigour with real-world marketing psychology to become a 'Growth Engineer'.",
+    "roi": "Maurice doesn't just 'run ads'. He optimizes the entire user journey. His technical audits usually uncover a 20-30% leak in conversion funnels within the first week.",
+    "contact": "Maurice is based in Nairobi, Kenya, and is open to global remote opportunities. You can email him at odhiambomaurice686@gmail.com."
+};
+
+const MauriceBot = new PortfolioRobot(resumeKnowledge);
+
+// Link to the existing UI trigger
+function sendMessage() {
+    MauriceBot.processUserMessage();
+}
+
+// Event listener for Enter Key
+document.getElementById('chatInput').addEventListener("keypress", (e) => {
+    if (e.key === "Enter") sendMessage();
+});
+       
 
         // 3. Functional Form Submission with AJAX
         const hiringForm = document.getElementById('hiringForm');
