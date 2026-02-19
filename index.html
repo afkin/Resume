@@ -14,6 +14,19 @@
 
     <style>
         body { font-family: 'Poppins', sans-serif; background-color: #020617; }
+        /* Prevent scrolling while loading */
+body.loading {
+    overflow: hidden;
+}
+
+#loader.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
         .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
         .gradient-text { background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hero-shape { position: absolute; filter: blur(80px); opacity: 0.15; z-index: -1; }
@@ -25,7 +38,9 @@
     </style>
 </head>
 <body class="text-slate-200 antialiased overflow-x-hidden">
+<!--  -->
 
+<!-- loader -->
     <nav class="fixed w-full z-[100] glass py-4">
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
             <span class="text-2xl font-bold gradient-text tracking-tighter">MOO.</span>
@@ -91,22 +106,195 @@
                     </div>
                 </div>
                 <div>
-                    <h3 class="text-2xl font-bold mb-10">Technical Toolkit</h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-sm">Tailwind CSS</span>
-                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-sm">React</span>
-                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-sm">Laravel</span>
-                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-sm">JavaScript</span>
-                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-sm">Meta Ads</span>
-                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-sm">SEO</span>
-                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-sm">Google Analytics</span>
-                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-sm">Email Automation</span>
+                  <!--  -->
+                    <div id="skills" class="py-4">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-start mb-20 reveal">
+                <h2 class="font-display text-2xl md:text-4xl font-bold mb-4">Technical Arsenal</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto">Specialized in building end-to-end solutions using modern technologies and industry best practices.</p>
+            </div>
+            
+            <div id="skills-container" class="grid md:grid-cols-3 gap-8">
+                <div class="skill-card glass p-8 rounded-3xl reveal">
+                    <div class="text-indigo-400 font-display text-xl font-bold mb-6 flex justify-between">
+                        Frontend & Mobile <span>01</span>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="skill-item">
+                            <div class="flex justify-between text-sm mb-2"><span class="font-medium">React / Next.js</span><span class="text-slate-500">95%</span></div>
+                            <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                                <div class="progress-fill h-full bg-indigo-500" data-percent="95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between text-sm mb-2"><span class="font-medium">TypeScript</span><span class="text-slate-500">90%</span></div>
+                            <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                                <div class="progress-fill h-full bg-indigo-500" data-percent="90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card glass p-8 rounded-3xl reveal">
+                    <div class="text-violet-400 font-display text-xl font-bold mb-6 flex justify-between">
+                        Backend & API <span>02</span>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="skill-item">
+                            <div class="flex justify-between text-sm mb-2"><span class="font-medium">Python / Django</span><span class="text-slate-500">92%</span></div>
+                            <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                                <div class="progress-fill h-full bg-violet-500" data-percent="92%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between text-sm mb-2"><span class="font-medium">Node.js</span><span class="text-slate-500">88%</span></div>
+                            <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                                <div class="progress-fill h-full bg-violet-500" data-percent="88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card glass p-8 rounded-3xl reveal">
+                    <div class="text-pink-400 font-display text-xl font-bold mb-6 flex justify-between">
+                        Cloud & QA <span>03</span>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="skill-item">
+                            <div class="flex justify-between text-sm mb-2"><span class="font-medium">Selenium Automation</span><span class="text-slate-500">95%</span></div>
+                            <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                                <div class="progress-fill h-full bg-pink-500" data-percent="95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between text-sm mb-2"><span class="font-medium">Docker / AWS</span><span class="text-slate-500">80%</span></div>
+                            <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                                <div class="progress-fill h-full bg-pink-500" data-percent="80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+                  <!--  -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--  -->
+      <section id="projects" class="py-32 bg-[#08080a]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end gap-8 mb-20 reveal">
+                <div>
+                    <h2 class="font-display text-4xl font-bold mb-4">Selected Work</h2>
+                    <p class="text-slate-500">A collection of projects that demonstrate technical depth.</p>
+                </div>
+                <div class="flex flex-wrap gap-2 p-1.5 glass rounded-2xl">
+                    <button class="filter-btn active px-6 py-2 rounded-xl text-sm font-semibold transition-all hover:bg-white/5 active" data-filter="all">All</button>
+                    <button class="filter-btn px-6 py-2 rounded-xl text-sm font-semibold transition-all hover:bg-white/5" data-filter="web">Web</button>
+                    <button class="filter-btn px-6 py-2 rounded-xl text-sm font-semibold transition-all hover:bg-white/5" data-filter="mobile">Mobile</button>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-container">
+                <div class="project-card group reveal" data-category="web">
+                    <div class="project-inner relative glass rounded-[2rem] overflow-hidden transition-all duration-500 border border-white/5 hover:border-violet-500/40">
+                        <div class="h-56 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 grayscale group-hover:grayscale-0">
+                        </div>
+                        <div class="p-8">
+                            <span class="text-[10px] font-bold tracking-[0.2em] text-violet-400 uppercase mb-2 block">Fintech Solution</span>
+                            <h3 class="text-xl font-bold mb-3 text-white">Quantum Analytics</h3>
+                            <p class="text-sm text-slate-400 line-clamp-2 mb-6">Real-time financial dashboard with predictive modeling and custom reporting tools.</p>
+                            <div class="flex gap-4">
+                                <a href="#" class="text-xs font-bold text-white hover:text-violet-400">Live Demo ↗</a>
+                                <a href="#" class="text-xs font-bold text-slate-500 hover:text-white">Case Study</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card group reveal" data-category="mobile">
+                    <div class="project-inner relative glass rounded-[2rem] overflow-hidden transition-all duration-500 border border-white/5 hover:border-violet-500/40">
+                        <div class="h-56 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 grayscale group-hover:grayscale-0">
+                        </div>
+                        <div class="p-8">
+                            <span class="text-[10px] font-bold tracking-[0.2em] text-indigo-400 uppercase mb-2 block">Health Tech</span>
+                            <h3 class="text-xl font-bold mb-3 text-white">Zenith Fitness App</h3>
+                            <p class="text-sm text-slate-400 line-clamp-2 mb-6">Cross-platform health tracker using React Native and Firebase integration.</p>
+                            <div class="flex gap-4">
+                                <a href="#" class="text-xs font-bold text-white hover:text-violet-400">Live Demo ↗</a>
+                                <a href="#" class="text-xs font-bold text-slate-500 hover:text-white">Source Code</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!--  -->
+    
+    <!-- code editor -->
+    <section id="code-lab" class="py-24 relative">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-12 reveal">
+            <h3 class="text-4xl font-bold mb-4 italic">The <span class="gradient-text text-white">Algorithm</span> Lab</h3>
+            <p class="text-slate-400">Deep dive into how I implement predictive modeling across different stacks.</p>
+        </div>
+
+        <div class="glass rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl reveal">
+            <div class="bg-slate-900/80 border-b border-white/5 p-4 flex items-center justify-between">
+                <div class="flex gap-2 items-center">
+                    <div class="flex gap-1.5 mr-4">
+                        <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+                    </div>
+                    <div class="flex bg-white/5 rounded-lg p-1 p-1">
+                        <button onclick="switchLang('js')" id="btn-js" class="lang-btn px-4 py-1.5 rounded-md text-xs font-bold transition-all bg-blue-600 text-white">JavaScript</button>
+                        <button onclick="switchLang('py')" id="btn-py" class="lang-btn px-4 py-1.5 rounded-md text-xs font-bold transition-all text-slate-400 hover:text-white">Python</button>
+                        <button onclick="switchLang('php')" id="btn-php" class="lang-btn px-4 py-1.5 rounded-md text-xs font-bold transition-all text-slate-400 hover:text-white">PHP</button>
+                        <button onclick="switchLang('java')" id="btn-java" class="lang-btn px-4 py-1.5 rounded-md text-xs font-bold transition-all text-slate-400 hover:text-white">Java</button>
+                    </div>
+                </div>
+                <div class="hidden md:block text-[10px] text-slate-500 font-mono tracking-widest uppercase">
+                    neural_network_engine.v2
+                </div>
+            </div>
+
+            <div class="relative group">
+                <pre class="p-8 overflow-x-auto font-mono text-sm leading-relaxed min-h-[400px] bg-[#020617]/50">
+<code id="code-display"  class="block whitespace-pre"></code>
+                </pre>
+                <button onclick="copyCode()" class="absolute top-4 right-4 p-2 glass rounded-lg opacity-0 group-hover:opacity-100 transition">
+                    <i data-lucide="copy" class="w-4 h-4 text-slate-400"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Custom Syntax Highlighting Colors */
+.syn-keyword { color: #c678dd; font-weight: 600; } /* Purple - Keywords */
+.syn-func    { color: #61afef; }               /* Blue - Functions */
+.syn-str     { color: #98c379; }               /* Green - Strings */
+.syn-num     { color: #d19a66; }               /* Orange - Numbers */
+.syn-comment { color: #5c6370; font-style: italic; } /* Grey - Comments */
+.syn-class   { color: #e5c07b; }               /* Yellow - Classes */
+
+/* Editor styling */
+#code-display {
+    font-family: 'Fira Code', 'Courier New', monospace;
+    line-height: 1.6;
+    tab-size: 4;
+}
+</style>
+    
+    <!-- code editor -->
 
     <section class="py-20 bg-slate-900/50">
         <div class="max-w-4xl mx-auto px-6">
@@ -372,6 +560,166 @@ document.getElementById('chatInput').addEventListener("keypress", (e) => {
         chatInput.addEventListener("keypress", (e) => {
             if (e.key === "Enter") sendMessage();
         });
+        
+        
+        
+        
+     // 4. Advanced Syntax Soup Engine (FIXED)
+const codeData = {
+    js: `// JS: Advanced Sentiment Analysis Weighting
+class SentimentEngine {
+    constructor() {
+        this.weights = new Map([['growth', 1.5], ['revenue', 2.0]]);
+    }
+
+    analyze(enquiry) {
+        const tokens = enquiry.toLowerCase().split(' ');
+        return tokens.reduce((score, token) => {
+            return score + (this.weights.get(token) || 0.1);
+        }, 0);
+    }
+}
+
+const robot = new SentimentEngine();
+console.log(robot.analyze("Strategic growth and revenue"));`,
+
+    py: `# Python: Predictive ROAS Modeling
+import numpy as np
+from sklearn.linear_model import LinearRegression
+
+def predict_roas(spend_data, conversion_data):
+    X = np.array(spend_data).reshape(-1, 1)
+    y = np.array(conversion_data)
+    
+    model = LinearRegression().fit(X, y)
+    next_spend = np.array([[5000]])
+    return model.predict(next_spend)
+
+print(f"Predicted ROI: {predict_roas([100, 200, 300], [500, 1100, 1600])}")`,
+
+    php: `<?php
+// PHP: Laravel ML Bridge for Customer LTV
+namespace App\\ML;
+
+class ValuePredictor {
+    public function calculateLTV(User $user) {
+        $history = $user->purchases()->avg('amount');
+        $frequency = $user->login_frequency_index;
+        
+        // Predictive algorithmic score
+        return ($history * $frequency) * 0.85;
+    }
+}
+
+$predictor = new ValuePredictor();
+echo $predictor->calculateLTV($activeUser);`,
+
+    java: `// Java: Neural Network Node Processing
+public class Neuron {
+    private double weight;
+    private double bias;
+
+    public double activate(double input) {
+        double z = (input * weight) + bias;
+        return 1.0 / (1.0 + Math.exp(-z)); // Sigmoid Activation
+    }
+
+    public static void main(String[] args) {
+        Neuron n = new Neuron(0.5, -0.1);
+        System.out.println(n.activate(1.0));
+    }
+}`
+};
+
+function highlightSoup(code) {
+    // 1. CLEAN UP: Strip any existing HTML tags or broken class fragments 
+    // This fixes the "class=class=" issue by reverting to plain text first.
+    let cleanCode = code.replace(/<[^>]*>?/gm, '').replace(/class="[^"]*"/g, '');
+
+    // 2. Escape HTML special characters
+    let text = cleanCode
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+
+    // 3. Apply Syntax Colors via Regex (Order is vital)
+    return text
+        // Comments (Highest priority - do not color what is inside a comment)
+        .replace(/(\/\/.*|#.*)/g, '<span class="syn-comment">$1</span>')
+        
+        // Strings
+        .replace(/(['"`][^'"`]*['"`])/g, '<span class="syn-str">$1</span>')
+        
+        // Keywords
+        .replace(/\b(class|const|let|var|function|def|import|from|return|public|private|namespace|new|static|echo|extends|package|using|if|else|for|while)\b/g, '<span class="syn-keyword">$1</span>')
+        
+        // Classes/Types
+        .replace(/\b(SentimentEngine|LinearRegression|ValuePredictor|Neuron|Map|User|String|System|Math|np|array)\b/g, '<span class="syn-class">$1</span>')
+        
+        // Functions
+        .replace(/\b(\w+)(?=\()/g, '<span class="syn-func">$1</span>')
+        
+        // Numbers
+        .replace(/\b(\d+(\.\d+)?)\b/g, '<span class="syn-num">$1</span>');
+}
+
+function switchLang(lang) {
+    const display = document.getElementById('code-display');
+    const buttons = document.querySelectorAll('.lang-btn');
+    
+    buttons.forEach(btn => {
+        btn.classList.remove('bg-blue-600', 'text-white');
+        btn.classList.add('text-slate-400');
+    });
+
+    const activeBtn = document.getElementById(`btn-${lang}`);
+    if(activeBtn) {
+        activeBtn.classList.add('bg-blue-600', 'text-white');
+        activeBtn.classList.remove('text-slate-400');
+    }
+    
+    // Use innerHTML to render the span tags generated by highlightSoup
+    display.innerHTML = highlightSoup(codeData[lang]);
+}
+function copyCode() {
+    const code = document.getElementById('code-display').innerText;
+    navigator.clipboard.writeText(code);
+    Toastify({
+        text: "Code copied to clipboard!",
+        style: { background: "linear-gradient(to right, #2563eb, #7c3aed)" }
+    }).showToast();
+}
+
+
+
+
+        // Project Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('bg-white/10', 'text-violet-400'));
+                btn.classList.add('bg-white/10', 'text-violet-400');
+                
+                const filter = btn.dataset.filter;
+                cards.forEach(card => {
+                    if(filter === 'all' || card.dataset.category === filter) {
+                        card.classList.remove('hidden');
+                        setTimeout(() => card.style.opacity = '1', 10);
+                    } else {
+                        card.style.opacity = '0';
+                        setTimeout(() => card.classList.add('hidden'), 300);
+                    }
+                });
+            });
+        });
+        
+
+// Ensure the first language loads on page start
+window.addEventListener('DOMContentLoaded', () => {
+    switchLang('js');
+});
     </script>
 </body>
 </html>
